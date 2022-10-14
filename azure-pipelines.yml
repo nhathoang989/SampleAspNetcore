@@ -10,8 +10,10 @@ variables:
    buildPlatform: 'any cpu'
     
 steps:
-- powershell: 'choco install dotnetcore-sdk --version=6.0.aspnetruntime'
-  displayName: 'Install .net core 6.0.aspnetruntime'
+- task: UseDotNet@2
+  displayName: 'Install .NET Core SDK'
+  inputs:
+    version: '6.0.x'
 - task: DotNetCoreCLI@2
   displayName: Restore  
   inputs:
